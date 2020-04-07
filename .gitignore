@@ -1,3 +1,4 @@
 app/config/local.neon
 Docker/database
 vendor
+.idea
