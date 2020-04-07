@@ -1,0 +1,54 @@
+{block content}
+	<main role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Objednávka</h1>
+				<p><a class="btn btn-primary btn-lg" n:href="Homepage:orderGrid" role="button">Zpět</a>
+					<a class="btn btn-secondary btn-lg" n:href="Homepage:generateOrderInvoice, $order->getId()" target="_blank" role="button">Vytisknout PDF</a></p>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<h2>Dodavatel</h2>
+						<h3>
+							<a n:href="Homepage:showCustomer $order->getSupplier()->getId()">{$order->getSupplier()->getName()}</a>
+						</h3>
+						<p>Adresa: {$order->getSupplier()->getAddress()}</p>
+						<p>IČO: {$order->getSupplier()->getIco()}</p>
+					</div>
+					<div class="col-md-2">
+						<div class="big-arrow-right"> ➔</div>
+					</div>
+					<div class="col-md-5">
+						<h2>Odběratel</h2>
+						<h3>
+							<a n:href="Homepage:showCustomer $order->getSubscriber()->getId()">{$order->getSubscriber()->getName()}</a>
+						</h3>
+						<p>Adresa: {$order->getSubscriber()->getAddress()}</p>
+						<p>IČO: {$order->getSubscriber()->getIco()}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<h2>Cena</h2>
+						<h2>{$order->getPrice()} CZK</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{/block}
+
+{block style}
+	<style>
+		.big-arrow-right {
+			font-size: 90px;
+		}
+	</style>
+{/block}

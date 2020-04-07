@@ -1,0 +1,9 @@
+#Dont change configruaton if you are using docker
+parameters:
+	db:
+		host: db
+		name: cz_nula_example
+		user: root
+		password: root
+		driver: pdo_mysql
+		serverVersion: 5.7

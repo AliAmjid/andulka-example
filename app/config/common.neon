@@ -1,0 +1,52 @@
+parameters:
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	router: App\Router\RouterFactory::createRouter
+	ares: Defr\Ares(%tempDir%,%debugMode%)
+	- App\Model\Forms\DataImportForm
+	- App\Model\Service\DataImportService
+	- App\Model\Service\CustomerService
+	- App\Model\Service\OrderService
+	- App\Model\Grid\CustomerGrid
+	- App\Model\Grid\OrderGrid
+extensions:
+	doctrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+	doctrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	doctrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+	doctrine.orm: Nettrine\ORM\DI\OrmExtension
+	doctrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	doctrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+	doctrine.cache: Nettrine\Cache\DI\CacheExtension
+	doctrine.migration: Nettrine\Migrations\DI\MigrationsExtension
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+
+doctrine.orm.annotations:
+    paths:
+        - app/Model
+
+
+doctrine.dbal:
+    debug:
+        panel: %debugMode%
+    connection:
+        host: %db.host%
+        driver:  %db.driver%
+        dbname:  %db.name%
+        user:  %db.user%
+        password:  %db.password%
+        charset: utf8
+        serverVersion: %db.serverVersion%
+
+doctrine.migration:
+	directory: %appDir%/../sql

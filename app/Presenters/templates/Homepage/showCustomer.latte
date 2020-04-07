@@ -1,0 +1,49 @@
+{block content}
+	<main role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">{$customer->getName()}</h1>
+				<h2>{App\Model\Type\CustomerType::$translate[$customer->getType()]}</h2>
+				<p><a class="btn btn-primary btn-lg" n:href="Homepage:customerGrid" role="button">Zpět</a></p>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2>Adresa</h2>
+						<p>{$customer->getAddress()}</p>
+					</div>
+					<div class="col-md-6">
+						<h2>IČO</h2>
+						<p>{$customer->getIco()}</p>
+					</div>
+				</div>
+				<hr>
+				<div n:if="$customer->getType() === App\Model\Type\CustomerType::SUPPLIER">
+					<h2>zakázky tohoto zákaníka</h2>
+					<ul n:foreach="$customer->getSupplies() as $order">
+						<li>
+							<a n:href="Homepage:showOrder, $order->getId()">Objednávka pro odběratele {$order->getSubscriber()->getName()} v
+								hodnotě {$order->getPrice()} CZK</a>
+						</li>
+					</ul>
+				</div>
+
+				<div n:if="$customer->getType() === App\Model\Type\CustomerType::SUBSCRIBER">
+					<h2>Objednávky tohoto zákazníka</h2>
+					<ul n:foreach="$customer->getOrders() as $order">
+						<li><a n:href="Homepage:showOrder, $order->getId()">Objednávka od dodavatele {$order->getSupplier()->getName()} v
+								hodnotě {$order->getPrice()} CZK</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+{/block}
+

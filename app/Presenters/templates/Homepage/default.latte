@@ -1,0 +1,31 @@
+{block content}
+	<main role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Vítejte!</h1>
+				<p>Importujte data z XLSX do systému.</p>
+				<p><a class="btn btn-primary btn-lg" n:href="Homepage:importData" role="button">Importovat &raquo;</a></p>
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Zobrazit zákazníky v systému</h2>
+					<p>Zobrazit firmy nahrané z xls souboru.</p>
+					<p><a class="btn btn-secondary" n:href="Homepage:customerGrid" role="button">Zobrazit &raquo;</a></p>
+				</div>
+				<div class="col-md-4">
+					<h2>Zobrazit objednávky v systému</h2>
+					<p>Přehled objednávek v systému</p>
+					<p><a class="btn btn-secondary" n:href="Homepage:orderGrid" role="button">Zobrazit &raquo;</a></p>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</main>
+{/block}
+

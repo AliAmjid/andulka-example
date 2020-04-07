@@ -1,0 +1,50 @@
+{block content}
+	<main role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Import dat</h1>
+				<p><a class="btn btn-primary btn-lg" n:href="Homepage:" role="button">Zpět</a></p>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<br>
+			<h2>Formulář</h2>
+			<p>U existujících klientů/partnerů bude vytvořena nová objednávka.</p>
+
+          {control dataImportForm}
+			<hr>
+			<h2>Popis souboru</h2>
+			<div class="container">
+				<table class="table">
+					<thead class="thead-dark">
+					<tr>
+						<th scope="col">Sloupec</th>
+						<th scope="col">Popis</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>IČO klient - odběratel</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>IČO partner - dodavatel</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Cena</td>
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</main>
+{/block}
+
