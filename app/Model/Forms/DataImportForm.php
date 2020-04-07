@@ -25,6 +25,7 @@ class DataImportForm extends BaseForm {
 
 	public function define() {
 		$this->addUpload('file', 'Soubor (Max: ' . EnvironmentUtils::maxUploadFormatted() . ')')
+			->setRequired()
 			->setHtmlAttribute('accept', '.xlsx');
 
 		$this->addSubmit('submit');
