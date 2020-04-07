@@ -29,8 +29,11 @@ Installation Via Docker
 ------------
 This is the simplest way to run application.
 
-Its recommended to use Docker on linux. 
-For some reason network between containers are slow on windows. 
+Its recommended to use Docker on Linux. 
+For some reason network between containers is slow on windows. 
+
+Set up file `local.neon`. (If you are using docker just copy the content of `local.example.neon`)
+
 
 Run
 
